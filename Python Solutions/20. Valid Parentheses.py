@@ -1,7 +1,6 @@
 # https://leetcode.com/problems/valid-parentheses/
 class Solution:
     def isValid(self, s: str) -> bool:
-        closing_brackets = { ")", "}", "]" }
         mapping = {
             "}": "{",
             "]": "[",
@@ -10,7 +9,7 @@ class Solution:
         
         queue = []
         for p in s:
-            if p in closing_brackets:
+            if p in mapping:
                 if len(queue) == 0:
                     return False
                 last_par = queue.pop()
